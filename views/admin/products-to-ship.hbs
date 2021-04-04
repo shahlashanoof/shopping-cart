@@ -1,0 +1,42 @@
+<section>
+    <div class="container">
+      <div class="row mt-5">
+       
+      </div>
+        <table class="table mt-5" id="productsToShip">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+        
+        <td rowspan="4">
+            <img style="width: 100px; height:100px "src="/product-images/{{this.product._id}}.jpeg" alt="">
+            </td>
+            <td>Name:</td><td>{{this.product.name}}</td>
+            
+    </tr>
+      
+          
+          <tr><td>Category</td><td>{{this.product.category}}</td></tr>
+          <tr><td>Price</td><td>{{this.product.price}}</td></tr>
+          <tr><td>Quantity</td><td>{{this.quantity}}</td></tr>
+          
+
+     
+      
+     
+    
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+<script> $(document).ready( function () {
+    $('#productsToShip').DataTable();
+} );
+</script>

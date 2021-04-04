@@ -1,0 +1,51 @@
+  <section >
+        <div class="container bg-light  p-1" style="width: 100%;">
+            <div class="row mt-3">
+                {{#each products}}
+                <div class="col-lg-3 col-md-6">
+                    <div class="card" style="width: 15rem; height: 23rem;text-align:center;">
+                        <img src="/product-images/{{this._id}}.jpeg"
+                            class="card-img-top mt-2" alt="..."
+                            style="height: 8rem; width:8rem;margin-left:auto;margin-right:auto;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size:20px;padding-top:2px;padding-bottom:4px;">{{this.name}}</h5>
+                            <h3 class="card-title" style="font-size:20px;padding-bottom:5x;">Rs.{{this.price}}</h3>
+                            <p class="card-text" style="padding-top:15px;font-size:13px;">{{this.description}}</p>
+                            
+                            <button onclick="addToCart('{{this._id}}')" class="btn btn-primary .mx-auto">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    <style>
+
+        .card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  
+  cursor: pointer;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.card{
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  height: auto;
+  transition: all 0.5s ease-out;
+  background: white;
+  border: none;
+}
+
+.card:hover .card-flip {
+  transform: rotateY(180deg);
+}
+    </style>

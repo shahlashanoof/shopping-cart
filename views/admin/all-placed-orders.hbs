@@ -1,0 +1,57 @@
+<section>
+    <div class="container">
+      
+      
+        <table class="table mt-5" id="placeorder">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Product</th>
+
+      <th scope="col">Address</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ship Order</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      
+      <td>{{this.date}}</td>
+      <td>{{this.userId}}</td>
+       <td><a href="/admin/products-to-ship/{{this._id}}" class="btn btn-primary">Products</a></td>
+
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.deliveryDetails.pincode}}</td>
+      <td>{{this.deliveryDetails.mobile}}</td>
+      <td>{{this.totalAmount}}</td>
+      <td>{{this.paymentmethod}}</td>
+      <td id="ship">{{this.status}}</td>
+     
+      
+      <td><a href="/admin/shipment-process/{{this._id}}" class="btn btn-primary" id="myBtn" onclick="shipment('{{this.status}}')">Ship</a></td>
+      
+      
+        
+       
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+    </div>
+</section>
+<script>
+  $(document).ready( function () {
+    $('#placeorder').DataTable();
+} );
+
+</script>
+
+ 
